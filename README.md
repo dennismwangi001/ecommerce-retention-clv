@@ -51,6 +51,15 @@ Source: https://archive.ics.uci.edu/dataset/502/online+retail+ii
 - 328 customers show a high-value-but-declining pattern (frequent past 
   purchases, no recent activity) — the highest-priority segment for 
   targeted retention spend, since they've already proven their value.
+  
+  **Sample of the RFM segmentation output** (full table: `data/processed/rfm_segments.csv`):
+
+| Customer ID | Recency | Frequency | Monetary | RFM Score | Segment |
+|---|---|---|---|---|---|
+| 12347 | 2 | 8 | 5,633.32 | 11 | Champions |
+| 12351 | 375 | 1 | 300.93 | 4 | Lost |
+| 12352 | 36 | 13 | 1,889.21 | 10 | Champions |
+| 12353 | 204 | 2 | 406.76 | 5 | Needs Attention |
 
 ## Business Recommendations
 ### Q2 & Q5
