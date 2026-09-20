@@ -4,14 +4,14 @@
 **Tools:** SQL · Python · Power BI [adjust per project]
 
 ## Business Problem
-[1-2 paragraphs: what real business challenge does this address, and why 
-does it matter to the business? Not "predict X" - frame it as a decision 
-someone in the company needs to make.]
+An e-commerce business wants to understand which customers are likely to churn, which are most valuable long-term, and how to prioritize retention spend — since acquiring new customers costs significantly more than retaining existing ones, but not all customers are worth retaining equally.
 
 ## Business Questions
-- [Question 1]
-- [Question 2]
-- [Question 3]
+- 1. What does the customer purchase/order pattern look like — frequency, recency, order value?
+- 2. Which customers show signs of churning (long gap since last purchase)?
+- 3. What is each customer's Customer Lifetime Value (CLV), and how concentrated is value among top customers?
+- 4. Can we forecast expected future value/order volume for the customer base? (this is where your econometrics/forecasting differentiator shows up)
+- 5. Which customer segments (by recency/frequency/value) should retention efforts prioritize?
 
 ## Data Source
 UCI Online Retail II dataset — real transaction-level data from a UK-based 
@@ -34,18 +34,33 @@ Source: https://archive.ics.uci.edu/dataset/502/online+retail+ii
   actual revenue after returns rather than gross sales alone.
 - After cleaning: 824,364 rows across 5,942 unique customers form the 
   base for RFM segmentation and CLV analysis.
+  - 100 customers (1.68%) had zero or negative net Monetary value (returns 
+  exceeding purchases in total value) and were excluded specifically from 
+  CLV ranking, since "lifetime value" is conceptually a positive-value 
+  measure. These customers remain in the general RFM/behavioral analysis, 
+  since the return-heavy pattern itself is a legitimate finding.
 2. Exploratory analysis - [brief summary]
 3. Statistical/analytical approach - [brief summary]
 4. Dashboard/visualization - [brief summary]
 
 ## Key Insights
-- [Insight 1 - tied to a number/finding, not vague]
-- [Insight 2]
-- [Insight 3]
+### Q2: Churn Risk & Q5: Retention Prioritization
+- Customer base breakdown: Champions (1,722, 29%), Loyal Customers 
+  (1,174, 20%), Needs Attention (864, 15%), Lost (1,133, 19%), Recent 
+  but Low Value (621, 10%), At Risk - Was Valuable (328, 5.5%).
+- 328 customers show a high-value-but-declining pattern (frequent past 
+  purchases, no recent activity) — the highest-priority segment for 
+  targeted retention spend, since they've already proven their value.
 
 ## Business Recommendations
-- [Recommendation 1 - tied directly to an insight above]
-- [Recommendation 2]
+### Q2 & Q5
+- Prioritize retention campaigns (personalized offers, re-engagement 
+  emails) specifically on the "At Risk (Was Valuable)" segment rather 
+  than broad-based retention spend — this offers the highest expected 
+  return given their proven historical value.
+- The "Lost" segment (19%) may warrant a lower-cost, automated win-back 
+  attempt, but shouldn't receive the same resource intensity as active 
+  retention efforts.
 
 ## Repo Structure
 - data/        raw (not committed) and processed data
