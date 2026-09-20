@@ -61,6 +61,13 @@ Source: https://archive.ics.uci.edu/dataset/502/online+retail+ii
 | 12352 | 36 | 13 | 1,889.21 | 10 | Champions |
 | 12353 | 204 | 2 | 406.76 | 5 | Needs Attention |
 
+### Q3: Customer Lifetime Value (CLV) Concentration
+- Top 20% of customers (1,168 of 5,942) generate 76.8% of total revenue — 
+  closely matching the classic Pareto (80/20) pattern.
+- The single highest-value customer alone accounts for 3.57% of total 
+  revenue (598,215.22), highlighting extreme concentration even within 
+  the top tier.
+
 ## Business Recommendations
 ### Q2 & Q5
 - Prioritize retention campaigns (personalized offers, re-engagement 
@@ -70,6 +77,13 @@ Source: https://archive.ics.uci.edu/dataset/502/online+retail+ii
 - The "Lost" segment (19%) may warrant a lower-cost, automated win-back 
   attempt, but shouldn't receive the same resource intensity as active 
   retention efforts.
+  ### Q3
+- Weight retention and account-management resources explicitly toward 
+  the top 20% of customers by CLV — losing top-tier accounts carries 
+  outsized revenue risk compared to losing an equivalent number of 
+  low-value customers.
+- Consider tiered account management: dedicated attention for the top 
+  ~200 customers, lighter-touch engagement for the broader base.
 
 ## Repo Structure
 - data/        raw (not committed) and processed data
