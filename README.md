@@ -67,6 +67,15 @@ Source: https://archive.ics.uci.edu/dataset/502/online+retail+ii
 - The single highest-value customer alone accounts for 3.57% of total 
   revenue (598,215.22), highlighting extreme concentration even within 
   the top tier.
+  ### Q4: Revenue Forecasting
+- Clear yearly seasonality: revenue ramps up Sept-Nov (holiday season) 
+  in both 2010 and 2011, then declines into the new year.
+- Holt-Winters exponential smoothing (accounting for trend + seasonality) 
+  forecasts Dec 2011 revenue at ~884,595, consistent with Dec 2010's 
+  actual 859,227 — validating the model against a real historical parallel.
+- Note: the final month of raw data (Dec 2011) was excluded from model 
+  training as it was partial (only 9 of 31 days), which would have 
+  distorted the seasonal pattern if included as-is.
 
 ## Business Recommendations
 ### Q2 & Q5
@@ -84,7 +93,12 @@ Source: https://archive.ics.uci.edu/dataset/502/online+retail+ii
   low-value customers.
 - Consider tiered account management: dedicated attention for the top 
   ~200 customers, lighter-touch engagement for the broader base.
-
+### Q4
+- Use the seasonal forecast to guide inventory and staffing planning — 
+  scale up ahead of Sept-Nov, scale back in Jan-Feb.
+- With only 2 full seasonal cycles in the data, validate the model 
+  against a third year's actual results before relying on it for 
+  high-stakes inventory commitments.
 ## Repo Structure
 - data/        raw (not committed) and processed data
 - sql/         SQL scripts for data extraction/analysis
