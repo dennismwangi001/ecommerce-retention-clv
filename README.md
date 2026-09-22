@@ -76,6 +76,8 @@ Source: https://archive.ics.uci.edu/dataset/502/online+retail+ii
 - Note: the final month of raw data (Dec 2011) was excluded from model 
   training as it was partial (only 9 of 31 days), which would have 
   distorted the seasonal pattern if included as-is.
+  ## 1 Product purchase pattern
+  The typical order (median: 240.57) is notably smaller than the average (370.98) suggests, indicating a right-skewed distribution driven by a subset of large orders — average order value alone would overstate what a typical transaction looks like. Top revenue-generating items are dominated by home décor and party/seasonal goods (cakestands, ornaments, bunting, Christmas items), consistent with a gift/décor-focused retailer. Notably, 'Postage' appears among the top 5 line items by revenue (112,249) — this reflects shipping charges recorded as product lines, not an actual bestselling product, and should be excluded from any product-performance ranking. Order volume is heavily concentrated Monday-Friday, with Saturday activity near zero (30 orders vs. thousands on weekdays) — consistent with a business operating on a standard weekday schedule, possibly serving business/wholesale customers rather than typical weekend-shopping consumers.
 
 ## Business Recommendations
 ### Q2 & Q5
@@ -99,12 +101,15 @@ Source: https://archive.ics.uci.edu/dataset/502/online+retail+ii
 - With only 2 full seasonal cycles in the data, validate the model 
   against a third year's actual results before relying on it for 
   high-stakes inventory commitments.
+  ##  Q1
+  Report order value using the median (or both figures together) rather than average alone, to avoid overstating typical customer spend. Exclude 'Postage' and any other non-product line items from product-performance analysis and dashboards. Given near-zero Saturday activity, marketing/promotional timing should focus on weekday engagement rather than weekend campaigns.
 ## Repo Structure
 - data/        raw (not committed) and processed data
 - sql/         SQL scripts for data extraction/analysis
 - notebooks/   Python/R analysis notebooks
 - dashboard/   Power BI/Tableau files or exported visuals
 - docs/        supporting docs, data dictionary, methodology notes
+
 
 ## How to Reproduce
 [Brief steps someone would follow to rerun this analysis]
